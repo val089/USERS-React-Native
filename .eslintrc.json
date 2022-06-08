@@ -24,6 +24,7 @@
   },
   "plugins": ["react", "react-native", "@typescript-eslint"],
   "rules": {
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-empty-interface": "off"
   }
 }
