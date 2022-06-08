@@ -1,18 +1,27 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { GlobalStyles } from '../styles/globalStyles';
 
 interface UserItemProps {
+  id: string;
   firstName: string;
   lastName: string;
+  onPress: () => void;
 }
 
-export const UserItem = ({ firstName, lastName }: UserItemProps) => {
+export const UserItem = ({ firstName, lastName, id }: UserItemProps) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.item}>
-      <Text style={styles.text}>
-        {firstName} {lastName}
-      </Text>
-    </View>
+    <Pressable
+      onPress={() => navigation.navigate('UserDetailsScreen', { userId: id })}
+    >
+      <View style={styles.item}>
+        <Text style={styles.text}>
+          {firstName} {lastName}
+        </Text>
+      </View>
+    </Pressable>
   );
 };
 
