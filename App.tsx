@@ -6,11 +6,12 @@ import {
 } from '@react-navigation/native-stack';
 import { GlobalStyles } from './src/styles/globalStyles';
 
-// Screens
 import { UsersScreen } from './src/screens/UserScreen';
+import { UserDetailsScreen } from './src/screens/UserDetailsScreen';
 
 export type RootStackParamList = {
   UsersScreen: undefined;
+  UserDetailsScreen: { userId: string };
 };
 
 export type RootStackNavigation<T extends keyof RootStackParamList> =
@@ -41,6 +42,10 @@ export default function App() {
             options={{
               title: 'Users'
             }}
+          />
+          <Stack.Screen
+            name="UserDetailsScreen"
+            component={UserDetailsScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>
