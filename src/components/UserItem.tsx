@@ -1,27 +1,33 @@
 import { useNavigation } from '@react-navigation/native';
+import { useDispatch } from 'react-redux';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { GlobalStyles } from '../styles/globalStyles';
+import { deleteUser } from '../store/slices/usersSlice';
 
 interface UserItemProps {
   id: string;
   firstName: string;
   lastName: string;
-  onPress: () => void;
 }
 
 export const UserItem = ({ firstName, lastName, id }: UserItemProps) => {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
 
   return (
-    <Pressable
-      onPress={() => navigation.navigate('UserDetailsScreen', { userId: id })}
-    >
-      <View style={styles.item}>
+    <View style={styles.item}>
+      <Pressable
+        onPress={() => navigation.navigate('UserDetailsScreen', { userId: id })}
+      >
         <Text style={styles.text}>
           {firstName} {lastName}
         </Text>
-      </View>
-    </Pressable>
+      </Pressable>
+
+      <Pressable onPress={() => dispatch(deleteUser({ id }))}>
+        <Text>Delete</Text>
+      </Pressable>
+    </View>
   );
 };
 
