@@ -1,15 +1,6 @@
-export type UserRoleType = 'admin' | 'user';
+import { UserType } from '../store/slices/usersSlice';
 
-export type UserType = {
-  id: string;
-  username: string;
-  firstName: string;
-  lastName: string;
-  role: UserRoleType;
-  enabled: boolean;
-};
-
-export const users = [
+export const users: UserType[] = [
   {
     id: 'user-1',
     username: 'user01',

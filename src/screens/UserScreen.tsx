@@ -1,15 +1,20 @@
 import { FlatList, View, ListRenderItem, StyleSheet } from 'react-native';
-import { users, UserType } from '../data/users';
+import { UserType } from '../store/slices/usersSlice';
+import { RootState } from '../store/store';
+import { useSelector } from 'react-redux';
+
 import { UserItem } from '../components/UserItem';
 
 export const UsersScreen = () => {
+  const users = useSelector((state: RootState) => state.users.users);
+
   const renderUser: ListRenderItem<UserType> = (itemData) => {
     return <UserItem {...itemData.item} />;
   };
 
   return (
     <View style={styles.screen}>
-      <FlatList data={users as UserType[]} renderItem={renderUser} />
+      <FlatList data={users} renderItem={renderUser} />
     </View>
   );
 };
