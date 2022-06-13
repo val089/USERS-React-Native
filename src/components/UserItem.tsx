@@ -1,8 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { HStack, IconButton, Icon, Pressable, Text } from 'native-base';
 import { StyleSheet } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { deleteUser } from '../store/slices/usersSlice';
 import { Ionicons } from '@expo/vector-icons';
 
 interface UserItemProps {
@@ -19,7 +17,6 @@ export const UserItem = ({
   onDelete
 }: UserItemProps) => {
   const navigation = useNavigation();
-  const dispatch = useDispatch();
 
   return (
     <HStack style={styles.item} bg="primary.200">
@@ -33,13 +30,12 @@ export const UserItem = ({
 
       <HStack>
         <IconButton
-          onPress={() => dispatch(deleteUser({ id }))}
+          onPress={() => console.log('edit')}
           icon={
             <Icon as={Ionicons} name="pencil" color="primary.400" size={6} />
           }
         />
         <IconButton
-          // onPress={() => dispatch(deleteUser({ id }))}
           onPress={() => onDelete(id)}
           icon={
             <Icon as={Ionicons} name="trash" color="primary.400" size={6} />
