@@ -8,8 +8,12 @@ import { UserItem } from '../components/UserItem';
 export const UsersScreen = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
+  const onDelete = (id) => {
+    console.log(id);
+  };
+
   const renderUser: ListRenderItem<UserType> = (itemData) => {
-    return <UserItem {...itemData.item} />;
+    return <UserItem {...itemData.item} onDelete={onDelete} />;
   };
 
   return (

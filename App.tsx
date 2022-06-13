@@ -5,10 +5,9 @@ import {
   NativeStackScreenProps
 } from '@react-navigation/native-stack';
 import { GlobalStyles } from './src/styles/globalStyles';
-import { Provider } from 'react-redux';
-import store from './src/store';
+import AppProviders from './src/providers/AppProviders';
 
-import { UsersScreen } from './src/screens/UserScreen';
+import { UsersScreen } from './src/screens/UsersScreen';
 import { UserDetailsScreen } from './src/screens/UserDetailsScreen';
 
 export type RootStackParamList = {
@@ -25,7 +24,7 @@ export default function App() {
   return (
     <>
       <StatusBar style="auto" />
-      <Provider store={store}>
+      <AppProviders>
         <NavigationContainer>
           <Stack.Navigator
             initialRouteName="UsersScreen"
@@ -52,7 +51,7 @@ export default function App() {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </Provider>
+      </AppProviders>
     </>
   );
 }
