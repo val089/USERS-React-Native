@@ -9,7 +9,7 @@ interface UserItemProps {
   id: string;
   firstName: string;
   lastName: string;
-  onDelete: () => void;
+  onDelete: (id: string) => void;
 }
 
 export const UserItem = ({

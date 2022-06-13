@@ -8,7 +8,7 @@ import { UserItem } from '../components/UserItem';
 export const UsersScreen = () => {
   const users = useSelector((state: RootState) => state.users.users);
 
-  const onDelete = (id) => {
+  const onDelete = (id: string) => {
     console.log(id);
   };
 
