@@ -5,6 +5,7 @@ import { Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser, editUser } from '../store/slices/usersSlice';
 import { RootState } from '../store/store';
+import * as Yup from 'yup';
 
 export const EditOrAddUserScreen = ({
   navigation,
@@ -50,14 +51,11 @@ export const EditOrAddUserScreen = ({
   return (
     <Formik
       validateOnChange
-      // validationSchema={Yup.object().shape({
-      //   email: Yup.string()
-      //     .email(formatMessage({ id: 'text.invalidEmail' }))
-      //     .required(formatMessage({ id: 'text.enterEmail' })),
-      //   password: Yup.string().required(
-      //     formatMessage({ id: 'text.enterPassword' })
-      //   )
-      // })}
+      validationSchema={Yup.object().shape({
+        firstName: Yup.string().required('Is required'),
+        lastName: Yup.string().required('Is required'),
+        username: Yup.string().required('Is required')
+      })}
       initialValues={defaultValues}
       onSubmit={isEdited ? onSubmitEditUser : onSubmitAddUser}
     >

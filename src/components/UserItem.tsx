@@ -1,12 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
-import { HStack, IconButton, Icon, Pressable, Text } from 'native-base';
+import { HStack, IconButton, Icon, VStack, Text, Button } from 'native-base';
 import { StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { UserRoleType } from '../store/slices/usersSlice';
 
 interface UserItemProps {
   id: string;
   firstName: string;
   lastName: string;
+  role: UserRoleType;
+  username: string;
   onDelete: (id: string) => void;
 }
 
@@ -14,21 +17,30 @@ export const UserItem = ({
   firstName,
   lastName,
   id,
+  role,
+  username,
   onDelete
 }: UserItemProps) => {
   const navigation = useNavigation();
 
   return (
     <HStack style={styles.item} bg="primary.200">
-      <Pressable
-        onPress={() => navigation.navigate('UserDetailsScreen', { userId: id })}
-      >
+      <VStack>
         <Text color="primary.400">
           {firstName} {lastName}
         </Text>
-      </Pressable>
+        <Text color="primary.400">role: {role}</Text>
+        <Text color="primary.400">username: {username}</Text>
+      </VStack>
 
       <HStack>
+        <Button
+          onPress={() =>
+            navigation.navigate('UserDetailsScreen', { userId: id })
+          }
+        >
+          READ MORE
+        </Button>
         <IconButton
           onPress={() =>
             navigation.navigate('EditOrAddUserScreen', {
