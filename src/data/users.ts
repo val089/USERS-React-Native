@@ -6,14 +6,18 @@ export const users: UserType[] = [
     username: 'user01',
     firstName: 'Paweł',
     lastName: 'Pawłowski',
+    imgUri:
+      'https://images.unsplash.com/photo-1510771463146-e89e6e86560e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=627&q=80',
     role: 'user',
     enabled: true
   },
   {
     id: 'user-2',
     username: 'user02',
-    firstName: 'Roman',
-    lastName: 'Kalinowski',
+    firstName: 'Alicja',
+    lastName: 'Kalinowska',
+    imgUri:
+      'https://images.unsplash.com/photo-1607746882042-944635dfe10e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     role: 'user',
     enabled: true
   },
@@ -22,14 +26,18 @@ export const users: UserType[] = [
     username: 'user03',
     firstName: 'Kaczor',
     lastName: 'Donald',
+    imgUri:
+      'https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
     role: 'admin',
     enabled: true
   },
   {
     id: 'user-4',
     username: 'user04',
-    firstName: 'Zenek',
-    lastName: 'Zenowski',
+    firstName: 'Patrycja',
+    lastName: 'Zenowska',
+    imgUri:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
     role: 'user',
     enabled: true
   }
