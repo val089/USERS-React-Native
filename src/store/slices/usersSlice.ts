@@ -8,6 +8,7 @@ export type UserType = {
   username: string;
   firstName: string;
   lastName: string;
+  imgUri: string;
   role: UserRoleType;
   enabled: boolean;
 };
