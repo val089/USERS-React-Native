@@ -29,10 +29,30 @@ const usersSlice = createSlice({
     },
     deleteUser: (state, action: PayloadAction<{ id: string }>) => {
       state.users = state.users.filter((user) => user.id !== action.payload.id);
+    },
+    editUser: (
+      state,
+      action: PayloadAction<{
+        id: string;
+        username: string;
+        firstName: string;
+        lastName: string;
+      }>
+    ) => {
+      state.users = state.users.map((user) =>
+        user.id === action.payload.id
+          ? {
+              ...user,
+              username: action.payload.username,
+              firstName: action.payload.firstName,
+              lastName: action.payload.lastName
+            }
+          : user
+      );
     }
   }
 });
 
-export const { addUser, deleteUser } = usersSlice.actions;
+export const { editUser, addUser, deleteUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

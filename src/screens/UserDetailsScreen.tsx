@@ -1,10 +1,11 @@
-import { FC, useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { View, Text } from 'react-native';
 import { RootStackNavigation } from '../../App';
 
-export const UserDetailsScreen: FC<
-  RootStackNavigation<'UserDetailsScreen'>
-> = ({ route, navigation }) => {
+export const UserDetailsScreen = ({
+  route,
+  navigation
+}: RootStackNavigation<'UserDetailsScreen'>) => {
   const { userId } = route.params;
 
   useLayoutEffect(() => {

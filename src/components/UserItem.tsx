@@ -30,7 +30,12 @@ export const UserItem = ({
 
       <HStack>
         <IconButton
-          onPress={() => console.log('edit')}
+          onPress={() =>
+            navigation.navigate('EditOrAddUserScreen', {
+              isEdited: true,
+              userId: id
+            })
+          }
           icon={
             <Icon as={Ionicons} name="pencil" color="primary.400" size={6} />
           }
