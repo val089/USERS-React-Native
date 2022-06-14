@@ -15,8 +15,11 @@ import { RootState } from '../store/store';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { UserItem } from '../components/UserItem';
+import { RootStackNavigation } from '../../App';
 
-export const UsersScreen = () => {
+export const UsersScreen = ({
+  navigation
+}: RootStackNavigation<'UsersScreen'>) => {
   const users = useSelector((state: RootState) => state.users.users);
   const [deletedItemId, setDeletedItemId] = useState('');
   const { isOpen, onOpen, onClose } = useDisclose();
@@ -40,6 +43,16 @@ export const UsersScreen = () => {
     <>
       <View flex={1} padding={4}>
         <FlatList data={users} renderItem={renderUser} />
+        <Button
+          onPress={() =>
+            navigation.navigate('EditOrAddUserScreen', {
+              isEdited: false,
+              userId: ''
+            })
+          }
+        >
+          ADD NEW USER
+        </Button>
       </View>
 
       <Actionsheet isOpen={isOpen} onClose={onClose}>

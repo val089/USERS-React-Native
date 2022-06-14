@@ -4,15 +4,16 @@ import {
   createNativeStackNavigator,
   NativeStackScreenProps
 } from '@react-navigation/native-stack';
-import { GlobalStyles } from './src/styles/globalStyles';
 import AppProviders from './src/providers/AppProviders';
 
 import { UsersScreen } from './src/screens/UsersScreen';
 import { UserDetailsScreen } from './src/screens/UserDetailsScreen';
+import { EditOrAddUserScreen } from './src/screens/EditOrAddUserScreen';
 
 export type RootStackParamList = {
   UsersScreen: undefined;
   UserDetailsScreen: { userId: string };
+  EditOrAddUserScreen: { isEdited: boolean; userId: string };
 };
 
 export type RootStackNavigation<T extends keyof RootStackParamList> =
@@ -30,11 +31,11 @@ export default function App() {
             initialRouteName="UsersScreen"
             screenOptions={{
               headerStyle: {
-                backgroundColor: GlobalStyles.colors.primary300
+                backgroundColor: 'primary.300'
               },
-              headerTintColor: GlobalStyles.colors.white,
+              headerTintColor: 'white',
               contentStyle: {
-                backgroundColor: GlobalStyles.colors.primary100
+                backgroundColor: 'primary.200'
               }
             }}
           >
@@ -48,6 +49,10 @@ export default function App() {
             <Stack.Screen
               name="UserDetailsScreen"
               component={UserDetailsScreen}
+            />
+            <Stack.Screen
+              name="EditOrAddUserScreen"
+              component={EditOrAddUserScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>

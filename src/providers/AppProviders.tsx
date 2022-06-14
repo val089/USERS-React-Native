@@ -3,9 +3,11 @@ import { Provider } from 'react-redux';
 import { NativeBaseProvider, extendTheme } from 'native-base';
 import appColors from '../styles/colors';
 import store from '../store';
+import components from '../styles/components';
 
 const theme = extendTheme({
-  colors: appColors
+  colors: appColors,
+  components
 });
 
 interface Props {
