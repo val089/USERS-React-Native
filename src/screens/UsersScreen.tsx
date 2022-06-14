@@ -98,7 +98,7 @@ export const UsersScreen = ({
               By last name
             </Radio>
             <Radio value="role" my={1}>
-              By last role
+              By role
             </Radio>
           </Radio.Group>
         </View>
