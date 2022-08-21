@@ -1,4 +1,4 @@
-# Recruitment Task - LSN
+# USERS
 
 ![lsn01](https://user-images.githubusercontent.com/30775271/173662005-60953846-cc70-45fd-b1df-8b0375507f02.png)
 
